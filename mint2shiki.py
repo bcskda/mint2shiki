@@ -68,9 +68,9 @@ for host in Readers:
         sys.exit(2)
     for match in sql_cursor.fetchall():
         reader_title_urls.append(reader_titlepage(match[0], host))
+sql_conn.close()
 if not reader_title_urls:
     print("Nothing found in history - probably check browser profile name")
-    sql_conn.close()
     sys.exit(0)
 print('Urls:', reader_title_urls)
 
@@ -87,7 +87,6 @@ api = pyshiki.Api(Shiki_user, Shiki_pass)
 shiki_uid = api.users('whoami').get()['id'] or None
 if not shiki_uid:
     print('Authentication failed')
-    conn.close()
     sys.exit(3)
 
 shiki_title_ids = []
@@ -118,5 +117,3 @@ if shiki_failures:
     print('Failed to mark ids:', shiki_failures)
 else:
     print('All {} titles marked as completed'.format(len(shiki_title_ids)))
-
-sql_conn.close()
