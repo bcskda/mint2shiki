@@ -10,6 +10,6 @@ mint2shiki.py user [pass]
 Пароль можно ввести и после запуска
 
 Что нужно:
-python3, requests, sqlite, pyshiki
+python3, sqlite3, requests, pyshiki
 Где взять:
-pip3 install requests sqlite3 pyshiki
+pip3 install requests pyshiki
